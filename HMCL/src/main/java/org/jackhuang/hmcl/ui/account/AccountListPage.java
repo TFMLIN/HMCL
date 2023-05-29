@@ -113,7 +113,7 @@ public class AccountListPage extends DecoratorAnimatedPage implements DecoratorP
                     mojangItem.setTitle(i18n("account.methods.yggdrasil"));
                     mojangItem.setLeftGraphic(wrap(SVG::mojang));
                     mojangItem.setOnAction(e -> Controllers.dialog(new CreateAccountPane(Accounts.FACTORY_MOJANG)));
-                    boxMethods.getChildren().add(mojangItem);
+//                    boxMethods.getChildren().add(mojangItem);
 
                     AdvancedListItem microsoftItem = new AdvancedListItem();
                     microsoftItem.getStyleClass().add("navigation-drawer-item");
@@ -121,7 +121,7 @@ public class AccountListPage extends DecoratorAnimatedPage implements DecoratorP
                     microsoftItem.setTitle(i18n("account.methods.microsoft"));
                     microsoftItem.setLeftGraphic(wrap(SVG::microsoft));
                     microsoftItem.setOnAction(e -> Controllers.dialog(new CreateAccountPane(Accounts.FACTORY_MICROSOFT)));
-                    boxMethods.getChildren().add(microsoftItem);
+//                    boxMethods.getChildren().add(microsoftItem);
 
                     VBox boxAuthServers = new VBox();
                     authServerItems = MappedObservableList.create(skinnable.authServersProperty(), server -> {
@@ -154,8 +154,8 @@ public class AccountListPage extends DecoratorAnimatedPage implements DecoratorP
 
                         return item;
                     });
-                    Bindings.bindContent(boxAuthServers.getChildren(), authServerItems);
-                    boxMethods.getChildren().add(boxAuthServers);
+//                    Bindings.bindContent(boxAuthServers.getChildren(), authServerItems);
+//                    boxMethods.getChildren().add(boxAuthServers);
                 }
 
                 AdvancedListItem addAuthServerItem = new AdvancedListItem();
@@ -171,7 +171,8 @@ public class AccountListPage extends DecoratorAnimatedPage implements DecoratorP
 
                 ScrollPane scrollPane = new ScrollPane(boxMethods);
                 VBox.setVgrow(scrollPane, Priority.ALWAYS);
-                setLeft(scrollPane, addAuthServerItem);
+//                setLeft(scrollPane, addAuthServerItem);
+                setLeft(scrollPane);
             }
 
             ScrollPane scrollPane = new ScrollPane();

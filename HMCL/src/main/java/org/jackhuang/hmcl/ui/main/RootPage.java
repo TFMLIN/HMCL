@@ -172,16 +172,27 @@ public class RootPage extends DecoratorAnimatedPage implements DecoratorPage {
             launcherSettingsItem.setOnAction(e -> Controllers.navigate(Controllers.getSettingsPage()));
 
             // the left sidebar
+//            AdvancedListBox sideBar = new AdvancedListBox()
+//                    .startCategory(i18n("account").toUpperCase(Locale.ROOT))
+//                    .add(accountListItem)
+//                    .startCategory(i18n("version").toUpperCase(Locale.ROOT))
+//                    .add(gameListItem)
+//                    .add(gameItem)
+//                    .add(downloadItem)
+//                    .startCategory(i18n("settings.launcher.general").toUpperCase(Locale.ROOT))
+//                    .add(multiplayerItem)
+//                    .add(launcherSettingsItem);
+
             AdvancedListBox sideBar = new AdvancedListBox()
                     .startCategory(i18n("account").toUpperCase(Locale.ROOT))
-                    .add(accountListItem)
-                    .startCategory(i18n("version").toUpperCase(Locale.ROOT))
-                    .add(gameListItem)
-                    .add(gameItem)
-                    .add(downloadItem)
-                    .startCategory(i18n("settings.launcher.general").toUpperCase(Locale.ROOT))
-                    .add(multiplayerItem)
-                    .add(launcherSettingsItem);
+                    .add(accountListItem);
+//                    .startCategory(i18n("version").toUpperCase(Locale.ROOT))
+//                    .add(gameListItem)
+//                    .add(gameItem)
+//                    .add(downloadItem)
+//                    .startCategory(i18n("settings.launcher.general").toUpperCase(Locale.ROOT))
+//                    .add(multiplayerItem)
+//                    .add(launcherSettingsItem);
 
             // the root page, with the sidebar in left, navigator in center.
             setLeft(sideBar);
