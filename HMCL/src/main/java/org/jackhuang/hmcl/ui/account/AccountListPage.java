@@ -102,7 +102,8 @@ public class AccountListPage extends DecoratorAnimatedPage implements DecoratorP
                     AdvancedListItem offlineItem = new AdvancedListItem();
                     offlineItem.getStyleClass().add("navigation-drawer-item");
                     offlineItem.setActionButtonVisible(false);
-                    offlineItem.setTitle(i18n("account.methods.offline"));
+//                    offlineItem.setTitle(i18n("account.methods.offline"));
+                    offlineItem.setTitle("理工账号");
                     offlineItem.setLeftGraphic(wrap(SVG::account));
                     offlineItem.setOnAction(e -> Controllers.dialog(new CreateAccountPane(Accounts.FACTORY_OFFLINE)));
                     boxMethods.getChildren().add(offlineItem);

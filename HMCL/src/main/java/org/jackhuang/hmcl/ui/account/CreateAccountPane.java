@@ -123,7 +123,8 @@ public class CreateAccountPane extends JFXDialogLayout implements DialogAware {
             } else {
                 title = "account.create." + Accounts.getLoginType(factory);
             }
-            setHeading(new Label(i18n(title)));
+            setHeading(new Label("添加理工账号"));
+//            setHeading(new Label(i18n(title)));
         }
 
         {
@@ -294,6 +295,7 @@ public class CreateAccountPane extends JFXDialogLayout implements DialogAware {
                 JFXHyperlink profileLink = new JFXHyperlink(i18n("account.methods.microsoft.profile"));
                 profileLink.setExternalLink("https://account.live.com/editprof.aspx");
                 JFXHyperlink purchaseLink = new JFXHyperlink(i18n("account.methods.yggdrasil.purchase"));
+//                JFXHyperlink purchaseLink = new JFXHyperlink("申请游戏账号");
                 purchaseLink.setExternalLink(YggdrasilService.PURCHASE_URL);
                 JFXHyperlink deauthorizeLink = new JFXHyperlink(i18n("account.methods.microsoft.deauthorize"));
                 deauthorizeLink.setExternalLink("https://account.live.com/consent/Edit?client_id=000000004C794E0A");
@@ -517,7 +519,8 @@ public class CreateAccountPane extends JFXDialogLayout implements DialogAware {
                 JFXHyperlink migrationHowLink = new JFXHyperlink(i18n("account.methods.yggdrasil.migration.how"));
                 migrationHowLink.setExternalLink("https://help.minecraft.net/hc/articles/4411173197709");
 
-                JFXHyperlink purchaseLink = new JFXHyperlink(i18n("account.methods.yggdrasil.purchase"));
+//                JFXHyperlink purchaseLink = new JFXHyperlink(i18n("account.methods.yggdrasil.purchase"));
+                JFXHyperlink purchaseLink = new JFXHyperlink("申请游戏账号");
                 purchaseLink.setExternalLink(YggdrasilService.PURCHASE_URL);
 
                 box.getChildren().setAll(migrationLink, migrationHowLink, purchaseLink);
@@ -529,7 +532,8 @@ public class CreateAccountPane extends JFXDialogLayout implements DialogAware {
             if (factory instanceof OfflineAccountFactory) {
                 txtUsername.setPromptText(i18n("account.methods.offline.name.special_characters"));
 
-                JFXHyperlink purchaseLink = new JFXHyperlink(i18n("account.methods.yggdrasil.purchase"));
+//                JFXHyperlink purchaseLink = new JFXHyperlink(i18n("account.methods.yggdrasil.purchase"));
+                JFXHyperlink purchaseLink = new JFXHyperlink("申请游戏账号");
                 purchaseLink.setExternalLink(YggdrasilService.PURCHASE_URL);
                 HBox linkPane = new HBox(purchaseLink);
                 GridPane.setColumnSpan(linkPane, 2);

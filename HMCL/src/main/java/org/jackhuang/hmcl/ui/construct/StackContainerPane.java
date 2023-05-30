@@ -39,7 +39,7 @@ public class StackContainerPane extends StackPane {
         stack.push(node);
         getChildren().setAll(node);
 
-        Logging.LOG.info(this + " " + stack);
+        Logging.LOG.info(this + "AAAAAAA" + stack);
     }
 
     public void pop(Node node) {

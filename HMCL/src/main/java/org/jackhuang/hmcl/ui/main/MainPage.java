@@ -123,6 +123,7 @@ public final class MainPage extends StackPane implements DecoratorPage {
 //            getChildren().add(announcementPane);
 //        }
         announcementPane = new VBox(16);
+
         String content = "这是哈尔滨理工大学MC启动器的第一个测试版，您可以点击左侧的添加游戏账户，添加一个离线账户，初始用户名为学号，添加完毕后，可以回到当前页面，点击右下角的”启动游戏按钮“开始游戏，祝您玩的开心！";
         AnnouncementCard announcementCard = new AnnouncementCard("公告", content);
         announcementPane.getChildren().add(announcementCard);
