@@ -33,7 +33,7 @@ public final class Metadata {
     public static final String NAME = "HMCL";
     public static final String FULL_NAME = "哈理工MC启动器";
 //    public static final String VERSION = System.getProperty("hmcl.version.override", JarUtils.getManifestAttribute("Implementation-Version", "@develop@"));
-public static final String VERSION = "_Test0.0.1";
+public static final String VERSION = "1.0.0";
 
     public static final String TITLE = NAME + " " + VERSION;
     public static final String FULL_TITLE = FULL_NAME + " v" + VERSION;

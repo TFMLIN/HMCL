@@ -17,6 +17,7 @@
  */
 package org.jackhuang.hmcl.ui.main;
 
+import com.google.gson.annotations.SerializedName;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPopup;
 import javafx.animation.KeyFrame;
@@ -39,6 +40,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
 import org.jackhuang.hmcl.Metadata;
+import org.jackhuang.hmcl.auth.OAuth;
 import org.jackhuang.hmcl.game.Version;
 import org.jackhuang.hmcl.setting.Profile;
 import org.jackhuang.hmcl.setting.Profiles;
@@ -57,6 +59,7 @@ import org.jackhuang.hmcl.ui.versions.Versions;
 import org.jackhuang.hmcl.upgrade.RemoteVersion;
 import org.jackhuang.hmcl.upgrade.UpdateChecker;
 import org.jackhuang.hmcl.upgrade.UpdateHandler;
+import org.jackhuang.hmcl.util.io.HttpRequest;
 import org.jackhuang.hmcl.util.javafx.BindingMapping;
 import org.jackhuang.hmcl.util.javafx.MappedObservableList;
 import org.jackhuang.hmcl.util.platform.JavaVersion;
@@ -72,6 +75,7 @@ import static org.jackhuang.hmcl.ui.FXUtils.SINE;
 import static org.jackhuang.hmcl.util.i18n.I18n.i18n;
 
 public final class MainPage extends StackPane implements DecoratorPage {
+
     private final ReadOnlyObjectWrapper<State> state = new ReadOnlyObjectWrapper<>();
 
     private final PopupMenu menu = new PopupMenu();
@@ -123,8 +127,16 @@ public final class MainPage extends StackPane implements DecoratorPage {
 //            getChildren().add(announcementPane);
 //        }
         announcementPane = new VBox(16);
+        String content;
+        try {
+            AnnouncementResponse response = HttpRequest.GET("http://10.255.254.2:5000/announcement").getJson(AnnouncementResponse.class);
+            content = response.data;
+        } catch (IOException e) {
+            content = "这是哈尔滨理工大学MC启动器，您可以点击左侧的添加游戏账户，添加一个离线账户，初始用户名为学号，添加完毕后，可以回到当前页面，点击右下角的”启动游戏按钮“开始游戏，祝您玩的开心！";
+//            throw new RuntimeException(e);
+        }
 
-        String content = "这是哈尔滨理工大学MC启动器的第一个测试版，您可以点击左侧的添加游戏账户，添加一个离线账户，初始用户名为学号，添加完毕后，可以回到当前页面，点击右下角的”启动游戏按钮“开始游戏，祝您玩的开心！";
+//        String content = "这是哈尔滨理工大学MC启动器的第一个测试版，您可以点击左侧的添加游戏账户，添加一个离线账户，初始用户名为学号，添加完毕后，可以回到当前页面，点击右下角的”启动游戏按钮“开始游戏，祝您玩的开心！";
         AnnouncementCard announcementCard = new AnnouncementCard("公告", content);
         announcementPane.getChildren().add(announcementCard);
         getChildren().add(announcementPane);
@@ -356,5 +368,13 @@ public final class MainPage extends StackPane implements DecoratorPage {
         FXUtils.checkFxUserThread();
         this.profile = profile;
         this.versions.setAll(versions);
+    }
+
+    private static class AnnouncementResponse {
+        @SerializedName("data")
+        public String data;
+
+        @SerializedName("time")
+        public String time;
     }
 }
